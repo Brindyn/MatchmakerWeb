@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Matchmaker 2020</title>
+</head>
+
+<body>
+<h1>Matchmaker 2020</h1>
+<h3>By Brindyn Schultz</h3>
+<hr>
+<h5>Matchmaker 2020</h5>
+<h5>Respond with a number 1-5 for each statement: 1 for Strongly Disagree and 5 for Strongly Agree</h5>
+<p id="question"></p>
+	<button onClick="buttonPush(1)">1</button>
+	<button onClick="buttonPush(2)">2</button>
+	<button onClick="buttonPush(3)">3</button>
+	<button onClick="buttonPush(4)">4</button>
+	<button onClick="buttonPush(5)">5</button>
+<p id="compatability"></p>
+<p id="totalCompatability"></p>
+<p id="answer"></p>
+
+<script>
+var difference1;
+var difference2;
+var difference3;
+var difference4;
+var difference5;
+var response;
+var responsetime = 0;
+document.getElementById("question").innerHTML = "I love dubstep!";
+function buttonPush(buttonNumber)
+{
+    response = buttonNumber;
+    if(responsetime === 0)
+    {
+        var userResponse1 = response;
+        var desiredAnswer1 = 5;
+        difference1 = Math.abs(userResponse1 - desiredAnswer1);
+        document.getElementById("compatability").innerHTML = ("Compatability Score Q1: " + (100 - (25 * difference1)) + "%");
+        responsetime = responsetime + 1;
+        document.getElementById("question").innerHTML = "I love all sports!";
+    }
+    else if(responsetime === 1)
+    {
+        var userResponse2 = response;
+        var desiredAnswer2 = 2;
+        difference2 = Math.abs(userResponse2 - desiredAnswer2);
+        document.getElementById("compatability").innerHTML = ("Compatability Score Q2: " + (100 - (25 * difference2)) + "%");
+        responsetime = responsetime + 1;
+        document.getElementById("question").innerHTML = "I love kendamas! ";
+    }
+    else if(responsetime === 2)
+    {
+        var userResponse3 = response;
+        var desiredAnswer3 = 4;
+        difference3 = Math.abs(userResponse3 - desiredAnswer3);
+        document.getElementById("compatability").innerHTML = ("Compatability Score Q3: " + (100 - (25 * difference3)) + "%");
+        responsetime = responsetime + 1;
+        document.getElementById("question").innerHTML = "I hate math class! ";
+    }
+
+    else if(responsetime === 3)
+    {
+        var userResponse4 = response;
+        var desiredAnswer4 = 1;
+        difference4 = Math.abs(userResponse4 - desiredAnswer4);
+        document.getElementById("compatability").innerHTML = ("Compatability Score Q4: " + (100 - (25 * difference4)) + "%");
+        responsetime = responsetime + 1;
+        document.getElementById("question").innerHTML = "I love cooking and cleaning! ";
+    }
+
+    else if(responsetime === 4)
+    {
+        var userResponse5 = response;
+        var desiredAnswer5 = 3;
+        difference5 = Math.abs(userResponse5 - desiredAnswer5);
+        document.getElementById("compatability").innerHTML = ("Compatability Score Q5: " + (100 - (25 * difference5)) + "%");
+        responsetime = responsetime + 1;
+
+        var totalCompatability = 100 - ((6 * difference1) + (4 * difference2) + (2 * difference3) + (5 * difference4) + (3 * difference5));
+        document.getElementById("totalCompatability").innerHTML = ("Total Compatability Score: " + totalCompatability + "%");
+        if(totalCompatability < 61)
+        {
+            document.getElementById("answer").innerHTML = ("umm... no thank you");
+        }
+        else if((totalCompatability > 60) && (totalCompatability < 81))
+        {
+            document.getElementById("answer").innerHTML = ("let's be best friends!");
+        }
+        else if(totalCompatability > 80)
+        {
+            document.getElementById("answer").innerHTML = ("marry me!");
+        }
+    }
+}
+
+</script>
+</body>
+</html>
